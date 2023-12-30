@@ -7,7 +7,7 @@ SECRET_KEY = os.environ.get('secret_key')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'huzanshop.ir', 'www.huzanshop.ir']
+ALLOWED_HOSTS = ['huzanshop.ir', 'www.huzanshop.ir']
 CSRF_TRUSTED_ORIGINS = ['https://huzanshop.ir', 'https://www.huzanshop.ir']
 
 
@@ -72,6 +72,16 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://huzan-redis-fte-service:6379/",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": os.environ.get('redis_pw')
+        },
+    }
+}
 
 AUTH_USER_MODEL = 'accounts.User'
 

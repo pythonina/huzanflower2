@@ -264,10 +264,11 @@ def request_otp(request):
             return JsonResponse({'msg': 'لطفا شماره تلفن را صحیح وارد نمایید'}, status=400)
 
         if (phone in cache):
+            print(cache.ttl(phone))
             return JsonResponse({'msg': 'بعد از مدتی دوباره تلاش کنید !', 'ttl': cache.ttl(phone)}, status=201)
 
         code = _generate_otp()
-        send_sms(receptor=phone, template='huzan', type=1, param1=code)
+        # send_sms(receptor=phone, template='huzan', type=1, param1=code)
         # print(code)
 
         cache.set(phone, code, 120)

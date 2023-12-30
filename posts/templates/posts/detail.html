@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load mptt_tags %}
+
+{% block metatags %}
+    <meta name="description" content="{{post.meta}}">
+{% endblock metatags %}
+
+{% block styles %}
+    <style>
+        :root {
+            --banner-topbg: url({% static 'icon/banner-top4.png' %});
+        }
+    </style>
+{% endblock styles %}
+
+{% block title %}مشخصات، قیمت و خرید {{post.title}} | گل فروشی هوزان{% endblock title %}
+
+{% block banner-top %}{% endblock banner-top %}
+{% block whatsapp-info %}{% endblock whatsapp-info %}
+
+{% block uparr_margin %}my-6 mx-5{% endblock uparr_margin %}
+
+{% block content %}
+
+    <nav class="container-lg px-2 py-11 mt-4 text-gray3 bg-transparent bg-lg-gray5 rounded-3">
+        <ol class="breadcrumb mb-0 f-small">
+            <li class="breadcrumb-item mx-2"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.83333 13.3249C7.59933 13.4029 6.38642 13.4023 5.16666 13.3234V13.3222V13.3145V13.3067V13.2989V13.2911V13.2832V13.2752V13.2672V13.2592V13.2511V13.2429V13.2347V13.2265V13.2182V13.2099V13.2015V13.1931V13.1846V13.1761V13.1675V13.1589V13.1502V13.1415V13.1328V13.124V13.1152V13.1063V13.0974V13.0884V13.0794V13.0703V13.0612V13.0521V13.0429V13.0337V13.0245V13.0152V13.0058V12.9965V12.9871V12.9776V12.9681V12.9586V12.949V12.9394V12.9298V12.9201V12.9104V12.9006V12.8908V12.881V12.8712V12.8613V12.8513V12.8414V12.8314V12.8213V12.8113V12.8012V12.791V12.7809V12.7707V12.7604V12.7502V12.7399V12.7295V12.7192V12.7088V12.6984V12.6879V12.6775V12.6669V12.6564V12.6458V12.6352V12.6246V12.614V12.6033V12.5926V12.5819V12.5711V12.5603V12.5495V12.5387V12.5278V12.5169V12.506V12.4951V12.4841V12.4731V12.4621V12.4511V12.44V12.429V12.4179V12.4068V12.3956V12.3844V12.3733V12.3621V12.3508V12.3396V12.3283V12.317V12.3057V12.2944V12.2831V12.2717V12.2603V12.2489V12.2375V12.2261V12.2147V12.2032V12.1917V12.1802V12.1687V12.1572V12.1457V12.1341V12.1225V12.111V12.0994V12.0878V12.0761V12.0645V12.0529V12.0412V12.0295V12.0178V12.0062V11.9944V11.9827V11.971V11.9593V11.9475V11.9358V11.924V11.9123V11.9005V11.8887V11.8769V11.8651V11.8533V11.8415V11.8297V11.8178V11.806V11.7942V11.7823V11.7705V11.7586V11.7468V11.7349V11.723V11.7112V11.6993V11.6874V11.6755V11.6637V11.6518V11.6399V11.628V11.6161V11.6043V11.5924V11.5805V11.5686V11.5567V11.5448V11.533V11.5211V11.5092V11.4973V11.4855V11.4736V11.4617V11.4499V11.438V11.4262V11.4143V11.4025V11.3906V11.3788V11.367V11.3551V11.3433V11.3315V11.3197V11.3079V11.2961V11.2843V11.2726V11.2608V11.2491V11.2373V11.2256V11.2138V11.2021V11.1904V11.1787V11.167V11.1554V11.1437V11.1321V11.1204V11.1088V11.0972V11.0856V11.074V11.0624V11.0509V11.0393V11.0278V11.0163V11.0048V10.9933V10.9818V10.9704V10.959V10.9475V10.9361V10.9248V10.9134V10.9021V10.8907V10.8794V10.8681V10.8569V10.8456V10.8344V10.8232V10.812V10.8008V10.7897V10.7785V10.7674V10.7563V10.7453V10.7343V10.7232V10.7122V10.7013V10.6903V10.6794V10.6685V10.6577V10.6468V10.636V10.6252V10.6144V10.6037V10.593V10.5823V10.5716V10.561V10.5504V10.5398V10.5293V10.5188V10.5083V10.4978V10.4874V10.477V10.4666V10.4563V10.446V10.4357V10.4255V10.4153V10.4051V10.395V10.3848V10.3748V10.3647V10.3547V10.3447V10.3348V10.3249V10.315V10.3052V10.2954V10.2856V10.2759V10.2662V10.2566V10.2469V10.2374V10.2278V10.2183V10.2089V10.1994V10.19V10.1807V10.1714V10.1621V10.1529V10.1437V10.1346V10.1255V10.1164V10.1074V10.0984V10.0895V10.0806V10.0718V10.0629V10.0542V10.0455V10.0368V10.0282V10.0196V10.0111V10.0026V9.99413V9.98573V9.97738V9.96908V9.96082V9.95262V9.94446V9.93634V9.92828V9.92027V9.9123V9.90438V9.89652V9.8887V9.88094V9.87322V9.86556V9.85794V9.85038V9.84288V9.83542V9.82801V9.82066V9.81337V9.80612V9.79893V9.79179V9.78471V9.77769V9.77071V9.7638V9.75694V9.75013V9.74338V9.73669V9.73006V9.72348V9.71696V9.71049V9.70409V9.69775V9.69146V9.68523V9.67906V9.67295V9.66691V9.66092V9.65499V9.64912V9.64332V9.63757V9.63189V9.62627V9.62072V9.61522V9.60979V9.60442V9.59912V9.59388V9.5887V9.58359V9.57855V9.57357V9.56865V9.5638V9.55902V9.55431V9.54966V9.54508V9.54056V9.53611V9.53174V9.52743V9.52319V9.51901V9.51491V9.51088V9.50691V9.50302V9.4992V9.49545V9.49177V9.48816V9.48462V9.48116V9.47777V9.47445C5.16666 9.3642 5.22964 9.20681 5.3776 9.06471C5.52427 8.92384 5.69728 8.85393 5.83333 8.85393H5.83676H5.84019H5.84364H5.84711H5.85059H5.85408H5.85758H5.8611H5.86463H5.86817H5.87172H5.87529H5.87887H5.88247H5.88607H5.88969H5.89332H5.89697H5.90062H5.90429H5.90797H5.91166H5.91537H5.91909H5.92282H5.92656H5.93031H5.93408H5.93785H5.94164H5.94544H5.94926H5.95308H5.95692H5.96076H5.96462H5.96849H5.97238H5.97627H5.98017H5.98409H5.98802H5.99196H5.9959H5.99987H6.00384H6.00782H6.01181H6.01582H6.01983H6.02386H6.02789H6.03194H6.036H6.04007H6.04415H6.04823H6.05233H6.05644H6.06056H6.06469H6.06883H6.07299H6.07715H6.08132H6.0855H6.08969H6.09389H6.0981H6.10232H6.10655H6.11079H6.11504H6.11929H6.12356H6.12784H6.13213H6.13642H6.14073H6.14504H6.14937H6.1537H6.15804H6.16239H6.16675H6.17112H6.1755H6.17988H6.18428H6.18868H6.1931H6.19752H6.20195H6.20639H6.21083H6.21529H6.21975H6.22422H6.2287H6.23319H6.23769H6.24219H6.24671H6.25123H6.25575H6.26029H6.26483H6.26939H6.27395H6.27851H6.28309H6.28767H6.29226H6.29686H6.30146H6.30608H6.3107H6.31532H6.31996H6.3246H6.32925H6.3339H6.33856H6.34323H6.34791H6.35259H6.35728H6.36198H6.36668H6.37139H6.37611H6.38083H6.38556H6.39029H6.39503H6.39978H6.40454H6.4093H6.41407H6.41884H6.42362H6.4284H6.43319H6.43799H6.44279H6.4476H6.45242H6.45724H6.46206H6.46689H6.47173H6.47657H6.48142H6.48627H6.49113H6.49599H6.50086H6.50574H6.51062H6.5155H6.52039H6.52528H6.53018H6.53509H6.53999H6.54491H6.54983H6.55475H6.55968H6.56461H6.56954H6.57448H6.57943H6.58438H6.58933H6.59429H6.59925H6.60422H6.60919H6.61416H6.61914H6.62413H6.62911H6.6341H6.63909H6.64409H6.64909H6.6541H6.65911H6.66412H6.66913H6.67415H6.67917H6.6842H6.68923H6.69426H6.69929H6.70433H6.70937H6.71441H6.71946H6.72451H6.72956H6.73462H6.73968H6.74474H6.7498H6.75486H6.75993H6.765H6.77008H6.77515H6.78023H6.78531H6.79039H6.79548H6.80056H6.80565H6.81074H6.81583H6.82093H6.82602H6.83112H6.83622H6.84132H6.84642H6.85153H6.85663H6.86174H6.86685H6.87196H6.87707H6.88218H6.8873H6.89241H6.89753H6.90264H6.90776H6.91288H6.918H6.92312H6.92824H6.93337H6.93849H6.94361H6.94874H6.95386H6.95899H6.96411H6.96924H6.97436H6.97949H6.98462H6.98974H6.99487H7H7.00512H7.01025H7.01538H7.0205H7.02563H7.03076H7.03588H7.04101H7.04613H7.05126H7.05638H7.06151H7.06663H7.07175H7.07687H7.08199H7.08711H7.09223H7.09735H7.10247H7.10758H7.1127H7.11781H7.12292H7.12804H7.13314H7.13825H7.14336H7.14847H7.15357H7.15867H7.16377H7.16887H7.17397H7.17907H7.18416H7.18925H7.19434H7.19943H7.20452H7.2096H7.21468H7.21976H7.22484H7.22992H7.23499H7.24006H7.24513H7.2502H7.25526H7.26032H7.26538H7.27043H7.27548H7.28053H7.28558H7.29062H7.29566H7.3007H7.30574H7.31077H7.3158H7.32082H7.32584H7.33086H7.33588H7.34089H7.3459H7.3509H7.3559H7.3609H7.36589H7.37088H7.37587H7.38085H7.38583H7.3908H7.39577H7.40074H7.4057H7.41066H7.41561H7.42056H7.42551H7.43045H7.43539H7.44032H7.44524H7.45017H7.45509H7.46H7.46491H7.46981H7.47471H7.4796H7.48449H7.48938H7.49426H7.49913H7.504H7.50886H7.51372H7.51857H7.52342H7.52826H7.5331H7.53793H7.54276H7.54758H7.55239H7.5572H7.562H7.5668H7.57159H7.57638H7.58116H7.58593H7.5907H7.59546H7.60021H7.60496H7.6097H7.61444H7.61917H7.62389H7.6286H7.63331H7.63802H7.64271H7.6474H7.65209H7.65676H7.66143H7.66609H7.67075H7.6754H7.68004H7.68467H7.6893H7.69392H7.69853H7.70314H7.70773H7.71232H7.71691H7.72148H7.72605H7.73061H7.73516H7.7397H7.74424H7.74877H7.75329H7.7578H7.76231H7.7668H7.77129H7.77577H7.78024H7.78471H7.78916H7.79361H7.79805H7.80248H7.8069H7.81131H7.81571H7.82011H7.8245H7.82887H7.83324H7.8376H7.84195H7.84629H7.85063H7.85495H7.85927H7.86357H7.86787H7.87215H7.87643H7.8807H7.88496H7.88921H7.89345H7.89768H7.9019H7.90611H7.91031H7.9145H7.91868H7.92285H7.92701H7.93116H7.9353H7.93943H7.94355H7.94766H7.95176H7.95585H7.95993H7.96399H7.96805H7.9721H7.97614H7.98016H7.98418H7.98818H7.99217H7.99616H8.00013H8.00409H8.00804H8.01198H8.0159H8.01982H8.02372H8.02762H8.0315H8.03537H8.03923H8.04308H8.04691H8.05074H8.05455H8.05835H8.06214H8.06592H8.06968H8.07344H8.07718H8.08091H8.08462H8.08833H8.09202H8.0957H8.09937H8.10303H8.10667H8.1103H8.11392H8.11753H8.12112H8.1247H8.12827H8.13182H8.13537H8.1389H8.14241H8.14592H8.14941H8.15288H8.15635H8.1598H8.16324H8.16666C8.30271 8.85393 8.47572 8.92384 8.6224 9.06471C8.77035 9.20681 8.83333 9.3642 8.83333 9.47445V11.8426V11.8545V11.8663V11.8781V11.8899V11.9017V11.9135V11.9252V11.937V11.9488V11.9605V11.9722V11.984V11.9957V12.0074V12.0191V12.0308V12.0425V12.0541V12.0658V12.0774V12.1007V12.1123V12.1239V12.1354V12.147V12.1585V12.1701V12.1816V12.1931V12.2046V12.216V12.2275V12.2389V12.2503V12.2617V12.2731V12.2845V12.2958V12.3072V12.3185V12.3298V12.341V12.3523V12.3635V12.3747V12.3859V12.3971V12.4082V12.4194V12.4305V12.4416V12.4857V12.4966V12.5076V12.5185V12.5294V12.5402V12.5511V12.5619V12.5727V12.5835V12.5942V12.6049V12.6156V12.6262V12.6369V12.6475V12.658V12.6686V12.6791V12.6896V12.7V12.7105V12.7209V12.7312V12.7416V12.9024V13.195V13.3249ZM4.16666 13.2347V13.2413C3.94106 13.2189 3.71492 13.1938 3.48807 13.1661C2.6251 13.0606 2.06072 12.8566 1.6803 12.5608C1.31266 12.275 1.06343 11.8614 0.916303 11.2171C0.341551 8.70001 0.488953 6.4602 0.617589 5.60644C0.631604 5.58262 0.657949 5.5443 0.702037 5.49031C0.790836 5.38157 0.924927 5.24151 1.10319 5.07314C1.45807 4.73795 1.95033 4.32575 2.51066 3.8816C3.62902 2.99511 4.98431 2.00821 5.97174 1.30365C6.59965 0.855632 7.45647 0.853655 8.08623 1.29899C9.08189 2.00306 10.4492 2.99116 11.5705 3.87872C12.1325 4.32353 12.6232 4.73564 12.9725 5.06998C13.1481 5.2381 13.2772 5.37641 13.3601 5.4822C13.394 5.52554 13.4152 5.55706 13.4273 5.5776C13.4275 5.58029 13.4277 5.583 13.4279 5.58572C13.4911 6.49623 13.6462 8.72888 13.1329 11.2278C13.0009 11.8702 12.7537 12.2811 12.3849 12.565C12.0013 12.8603 11.4293 13.0624 10.5646 13.1659C10.3196 13.1953 10.0759 13.2216 9.83333 13.245V13.195V12.9024V12.7416V12.7312V12.7209V12.7105V12.7V12.6896V12.6791V12.6686V12.658V12.6475V12.6369V12.6262V12.6156V12.6049V12.5942V12.5835V12.5727V12.5619V12.5511V12.5402V12.5294V12.5185V12.5076V12.4966V12.4857V12.4416V12.4305V12.4194V12.4082V12.3971V12.3859V12.3747V12.3635V12.3523V12.341V12.3298V12.3185V12.3072V12.2958V12.2845V12.2731V12.2617V12.2503V12.2389V12.2275V12.216V12.2046V12.1931V12.1816V12.1701V12.1585V12.147V12.1354V12.1239V12.1123V12.1007V12.0774V12.0658V12.0541V12.0425V12.0308V12.0191V12.0074V11.9957V11.984V11.9722V11.9605V11.9488V11.937V11.9252V11.9135V11.9017V11.8899V11.8781V11.8663V11.8545V11.8426V9.47445C9.83333 9.02443 9.60464 8.62157 9.31509 8.34348C9.02427 8.06416 8.61395 7.85393 8.16666 7.85393H8.16324H8.1598H8.15635H8.15288H8.14941H8.14592H8.14241H8.1389H8.13537H8.13182H8.12827H8.1247H8.12112H8.11753H8.11392H8.1103H8.10667H8.10303H8.09937H8.0957H8.09202H8.08833H8.08462H8.08091H8.07718H8.07344H8.06968H8.06592H8.06214H8.05835H8.05455H8.05074H8.04691H8.04308H8.03923H8.03537H8.0315H8.02762H8.02372H8.01982H8.0159H8.01198H8.00804H8.00409H8.00013H7.99616H7.99217H7.98818H7.98418H7.98016H7.97614H7.9721H7.96805H7.96399H7.95993H7.95585H7.95176H7.94766H7.94355H7.93943H7.9353H7.93116H7.92701H7.92285H7.91868H7.9145H7.91031H7.90611H7.9019H7.89768H7.89345H7.88921H7.88496H7.8807H7.87643H7.87215H7.86787H7.86357H7.85927H7.85495H7.85063H7.84629H7.84195H7.8376H7.83324H7.82887H7.8245H7.82011H7.81571H7.81131H7.8069H7.80248H7.79805H7.79361H7.78916H7.78471H7.78024H7.77577H7.77129H7.7668H7.76231H7.7578H7.75329H7.74877H7.74424H7.7397H7.73516H7.73061H7.72605H7.72148H7.71691H7.71232H7.70773H7.70314H7.69853H7.69392H7.6893H7.68467H7.68004H7.6754H7.67075H7.66609H7.66143H7.65676H7.65209H7.6474H7.64271H7.63802H7.63331H7.6286H7.62389H7.61917H7.61444H7.6097H7.60496H7.60021H7.59546H7.5907H7.58593H7.58116H7.57638H7.57159H7.5668H7.562H7.5572H7.55239H7.54758H7.54276H7.53793H7.5331H7.52826H7.52342H7.51857H7.51372H7.50886H7.504H7.49913H7.49426H7.48938H7.48449H7.4796H7.47471H7.46981H7.46491H7.46H7.45509H7.45017H7.44524H7.44032H7.43539H7.43045H7.42551H7.42056H7.41561H7.41066H7.4057H7.40074H7.39577H7.3908H7.38583H7.38085H7.37587H7.37088H7.36589H7.3609H7.3559H7.3509H7.3459H7.34089H7.33588H7.33086H7.32584H7.32082H7.3158H7.31077H7.30574H7.3007H7.29566H7.29062H7.28558H7.28053H7.27548H7.27043H7.26538H7.26032H7.25526H7.2502H7.24513H7.24006H7.23499H7.22992H7.22484H7.21976H7.21468H7.2096H7.20452H7.19943H7.19434H7.18925H7.18416H7.17907H7.17397H7.16887H7.16377H7.15867H7.15357H7.14847H7.14336H7.13825H7.13314H7.12804H7.12292H7.11781H7.1127H7.10758H7.10247H7.09735H7.09223H7.08711H7.08199H7.07687H7.07175H7.06663H7.06151H7.05638H7.05126H7.04613H7.04101H7.03588H7.03076H7.02563H7.0205H7.01538H7.01025H7.00512H7H6.99487H6.98974H6.98462H6.97949H6.97436H6.96924H6.96411H6.95899H6.95386H6.94874H6.94361H6.93849H6.93337H6.92824H6.92312H6.918H6.91288H6.90776H6.90264H6.89753H6.89241H6.8873H6.88218H6.87707H6.87196H6.86685H6.86174H6.85663H6.85153H6.84642H6.84132H6.83622H6.83112H6.82602H6.82093H6.81583H6.81074H6.80565H6.80056H6.79548H6.79039H6.78531H6.78023H6.77515H6.77008H6.765H6.75993H6.75486H6.7498H6.74474H6.73968H6.73462H6.72956H6.72451H6.71946H6.71441H6.70937H6.70433H6.69929H6.69426H6.68923H6.6842H6.67917H6.67415H6.66913H6.66412H6.65911H6.6541H6.64909H6.64409H6.63909H6.6341H6.62911H6.62413H6.61914H6.61416H6.60919H6.60422H6.59925H6.59429H6.58933H6.58438H6.57943H6.57448H6.56954H6.56461H6.55968H6.55475H6.54983H6.54491H6.53999H6.53509H6.53018H6.52528H6.52039H6.5155H6.51062H6.50574H6.50086H6.49599H6.49113H6.48627H6.48142H6.47657H6.47173H6.46689H6.46206H6.45724H6.45242H6.4476H6.44279H6.43799H6.43319H6.4284H6.42362H6.41884H6.41407H6.4093H6.40454H6.39978H6.39503H6.39029H6.38556H6.38083H6.37611H6.37139H6.36668H6.36198H6.35728H6.35259H6.34791H6.34323H6.33856H6.3339H6.32925H6.3246H6.31996H6.31532H6.3107H6.30608H6.30146H6.29686H6.29226H6.28767H6.28309H6.27851H6.27395H6.26939H6.26483H6.26029H6.25575H6.25123H6.24671H6.24219H6.23769H6.23319H6.2287H6.22422H6.21975H6.21529H6.21083H6.20639H6.20195H6.19752H6.1931H6.18868H6.18428H6.17988H6.1755H6.17112H6.16675H6.16239H6.15804H6.1537H6.14937H6.14504H6.14073H6.13642H6.13213H6.12784H6.12356H6.11929H6.11504H6.11079H6.10655H6.10232H6.0981H6.09389H6.08969H6.0855H6.08132H6.07715H6.07299H6.06883H6.06469H6.06056H6.05644H6.05233H6.04823H6.04415H6.04007H6.036H6.03194H6.02789H6.02386H6.01983H6.01582H6.01181H6.00782H6.00384H5.99987H5.9959H5.99196H5.98802H5.98409H5.98017H5.97627H5.97238H5.96849H5.96462H5.96076H5.95692H5.95308H5.94926H5.94544H5.94164H5.93785H5.93408H5.93031H5.92656H5.92282H5.91909H5.91537H5.91166H5.90797H5.90429H5.90062H5.89697H5.89332H5.88969H5.88607H5.88247H5.87887H5.87529H5.87172H5.86817H5.86463H5.8611H5.85758H5.85408H5.85059H5.84711H5.84364H5.84019H5.83676H5.83333C5.38605 7.85393 4.97573 8.06416 4.6849 8.34348C4.39535 8.62157 4.16666 9.02443 4.16666 9.47445V9.47777V9.48116V9.48462V9.48816V9.49177V9.49545V9.4992V9.50302V9.50691V9.51088V9.51491V9.51901V9.52319V9.52743V9.53174V9.53611V9.54056V9.54508V9.54966V9.55431V9.55902V9.5638V9.56865V9.57357V9.57855V9.58359V9.5887V9.59388V9.59912V9.60442V9.60979V9.61522V9.62072V9.62627V9.63189V9.63757V9.64332V9.64912V9.65499V9.66092V9.66691V9.67295V9.67906V9.68523V9.69146V9.69775V9.70409V9.71049V9.71696V9.72348V9.73006V9.73669V9.74338V9.75013V9.75694V9.7638V9.77071V9.77769V9.78471V9.79179V9.79893V9.80612V9.81337V9.82066V9.82801V9.83542V9.84288V9.85038V9.85794V9.86556V9.87322V9.88094V9.8887V9.89652V9.90438V9.9123V9.92027V9.92828V9.93634V9.94446V9.95262V9.96082V9.96908V9.97738V9.98573V9.99413V10.0026V10.0111V10.0196V10.0282V10.0368V10.0455V10.0542V10.0629V10.0718V10.0806V10.0895V10.0984V10.1074V10.1164V10.1255V10.1346V10.1437V10.1529V10.1621V10.1714V10.1807V10.19V10.1994V10.2089V10.2183V10.2278V10.2374V10.2469V10.2566V10.2662V10.2759V10.2856V10.2954V10.3052V10.315V10.3249V10.3348V10.3447V10.3547V10.3647V10.3748V10.3848V10.395V10.4051V10.4153V10.4255V10.4357V10.446V10.4563V10.4666V10.477V10.4874V10.4978V10.5083V10.5188V10.5293V10.5398V10.5504V10.561V10.5716V10.5823V10.593V10.6037V10.6144V10.6252V10.636V10.6468V10.6577V10.6685V10.6794V10.6903V10.7013V10.7122V10.7232V10.7343V10.7453V10.7563V10.7674V10.7785V10.7897V10.8008V10.812V10.8232V10.8344V10.8456V10.8569V10.8681V10.8794V10.8907V10.9021V10.9134V10.9248V10.9361V10.9475V10.959V10.9704V10.9818V10.9933V11.0048V11.0163V11.0278V11.0393V11.0509V11.0624V11.074V11.0856V11.0972V11.1088V11.1204V11.1321V11.1437V11.1554V11.167V11.1787V11.1904V11.2021V11.2138V11.2256V11.2373V11.2491V11.2608V11.2726V11.2843V11.2961V11.3079V11.3197V11.3315V11.3433V11.3551V11.367V11.3788V11.3906V11.4025V11.4143V11.4262V11.438V11.4499V11.4617V11.4736V11.4855V11.4973V11.5092V11.5211V11.533V11.5448V11.5567V11.5686V11.5805V11.5924V11.6043V11.6161V11.628V11.6399V11.6518V11.6637V11.6755V11.6874V11.6993V11.7112V11.723V11.7349V11.7468V11.7586V11.7705V11.7823V11.7942V11.806V11.8178V11.8297V11.8415V11.8533V11.8651V11.8769V11.8887V11.9005V11.9123V11.924V11.9358V11.9475V11.9593V11.971V11.9827V11.9944V12.0062V12.0178V12.0295V12.0412V12.0529V12.0645V12.0761V12.0878V12.0994V12.111V12.1225V12.1341V12.1457V12.1572V12.1687V12.1802V12.1917V12.2032V12.2147V12.2261V12.2375V12.2489V12.2603V12.2717V12.2831V12.2944V12.3057V12.317V12.3283V12.3396V12.3508V12.3621V12.3733V12.3844V12.3956V12.4068V12.4179V12.429V12.44V12.4511V12.4621V12.4731V12.4841V12.4951V12.506V12.5169V12.5278V12.5387V12.5495V12.5603V12.5711V12.5819V12.5926V12.6033V12.614V12.6246V12.6352V12.6458V12.6564V12.6669V12.6775V12.6879V12.6984V12.7088V12.7192V12.7295V12.7399V12.7502V12.7604V12.7707V12.7809V12.791V12.8012V12.8113V12.8213V12.8314V12.8414V12.8513V12.8613V12.8712V12.881V12.8908V12.9006V12.9104V12.9201V12.9298V12.9394V12.949V12.9586V12.9681V12.9776V12.9871V12.9965V13.0058V13.0152V13.0245V13.0337V13.0429V13.0521V13.0612V13.0703V13.0794V13.0884V13.0974V13.1063V13.1152V13.124V13.1328V13.1415V13.1502V13.1589V13.1675V13.1761V13.1846V13.1931V13.2015V13.2099V13.2182V13.2265V13.2347ZM0.609362 5.62178C0.609328 5.62179 0.609647 5.62103 0.610424 5.61946C0.609785 5.62098 0.609397 5.62177 0.609362 5.62178ZM13.4388 5.5993C13.4387 5.59928 13.4382 5.59812 13.4373 5.59589C13.4384 5.5982 13.4389 5.59932 13.4388 5.5993Z" stroke="#262535" stroke-linecap="round" stroke-linejoin="round"/></svg></li>
+            <li class="breadcrumb-item"><a class="text-gray3 text-decoration-none" href="{% url 'home_url' %}">خانه</a></li>
+            <li class="breadcrumb-item"><a class="text-gray3 text-decoration-none" href="{% url 'shop_url' %}">فروشگاه</a></li>
+            {% for cat in parent_cats %}
+                <li class="breadcrumb-item"><a class="text-gray3 text-decoration-none" href="{% url 'shop_url' cat.slug %}">{{cat.name}}</a></li>
+            {% endfor %}
+            <li class="active">{{post.title}}</li>
+        </ol>
+    </nav>  
+    
+    <div id="container" class="container-lg my-3">
+        <div class="mb-4 d-flex d-lg-none">
+            <h1 class="d-inline-block h5 text-gray2 bold mw-66 mw-sm-75 py-1 text-truncate mb-0 ms-1">{{post.title}}</h1>
+            <span class="float-start me-auto me-lg-0 text-5 bold f-small py-1 px-2 rounded-3 border-c1 border-solid border-l1">کد {{post.id}}</span>
+        </div>
+        <div class="d-flex flex-wrap">
+            <div class="d-flex flex-column col-12 col-lg-7 col-xl-6 mw-37 mx-auto mx-lg-0">
+                <div class="position-relative mh-30">
+                    <img class="img-cover w-100 h-100 rounded-22" data-src="{{post.image1.url}}" alt="{{post.title}}">
+                    {% if post.off %}
+                        <div class="d-flex position-absolute bottom-0 start-50 translate-middle-x text-nowrap mb-3">
+                            <div class="f-350sm d-lg-none lh-xbase rounded-width-3 rounded-end px-2 py-1 bg-purple1 text-white bold"> تخفیف {{post.off}} % </div>
+                            <div class="f-350sm d-lg-none lh-xbase rounded-width-3 rounded-start text-center py-1 w-75r countdown text-light bg-red1 f-small" data-date="{{post.off_date}}">
+                                <span class="second"></span>
+                                <span class="minute"></span>
+                                <span class="hour"></span>
+                                <span class="day"></span>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if post.image2 or post.image3 or post.image4 %}
+                    <div class="mt-3 row row-cols-auto justify-content-center justify-content-lg-start">
+                        <button class="img-cover btn mb-3 mx-11 p-0 img-clk rounded-22"><img data-src="{{post.image1.url}}" alt="عکس اول {{post.title}}" width="80" height="80"></button>
+                        {% if post.image2 %}
+                            <button class="img-cover btn mb-3 mx-11 p-0 img-clk rounded-22"><img data-src="{{post.image2.url}}" alt="عکس دوم {{post.title}}" width="80" height="80"></button>
+                        {% endif %}
+                        {% if post.image3 %}
+                            <button class="img-cover btn mb-3 mx-11 p-0 img-clk rounded-22"><img data-src="{{post.image3.url}}" alt="عکس سوم {{post.title}}" width="80" height="80"></button>
+                        {% endif %}
+                        {% if post.image4 %}
+                            <button class="img-cover btn mb-3 mx-11 p-0 img-clk rounded-22"><img data-src="{{post.image4.url}}" alt="عکس چهارم {{post.title}}" width="80" height="80"></button>
+                        {% endif %}
+                    </div>
+              {% endif %}
+            </div>
+            <div class="position-relative col-12 col-lg-5 col-xl-6 pe-lg-4 mt-22 mt-lg-0 f-small text-gray2">
+                <div class="mb-4 d-none d-lg-flex">
+                    <h1 class="d-inline-block h5 bold mb-0 mw-66 mw-sm-75 py-1 text-truncate ms-1 ms-lg-4">{{post.title}}</h1>
+                    <span class="text-5 bold py-1 px-2 rounded-3 border-c1 border-solid border-l1">کد {{post.id}}</span>
+                </div>
+                
+                {% for prop in post.props.all %}
+                    {% if prop.value %}
+                        <span class="bold">{{prop.property.name}} :</span>
+                        <span class="me-3">{{prop.value}}</span>
+                        <hr class="hr-t1 mt-2 mb-3" />
+                    {% endif %}
+                {% endfor %}
+                <span class="bold">هزینه تقریبی :</span>
+                <span class="me-3">هزینه این محصول {% if post.price %}{{post.price}}  است.{% else %}(تماس بگیرید) مشخص نشده است.{% endif %}</span>
+                <hr class="d-none d-lg-block hr-t1 mt-2 mb-3" />
+                {% if post.avail %}
+                    <div class="d-flex align-items-center">
+                        <span class="d-none d-lg-inline-block text-nowrap text-center float-end bold">تعداد :</span>
+                        <span class="q-d input-group justify-content-start w-8r" dir="ltr">
+                            <button type="button" class="m-0 rounded-3 btn px-2 translate-middle-x100 input-group-text border-0" data-type="minus" data-field="quantity">
+                                <svg width="10" height="2" viewBox="0 0 10 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 1H9" stroke="#363853" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            <input autocomplete="off" data-id="{{post.id}}" data-image1="{{ post.image1.url }}" data-title="{{post.title}}" data-url="{% url 'detail_url' post.slug %}" dir="rtl" type="text" name="quantity" class="{% if quantity %}q-di{% else %}q-di2{% endif %} rounded-3 m-0 text-center form-control" value="{{quantity|default:'1'}}">
+                            <button type="button" class="m-0 rounded-3 btn px-2 translate-middle-xn100 input-group-text border-0" data-type="plus" data-field="quantity">
+                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1 5H9M5 1L5 9" stroke="#363853" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                        </span>
+                        <div id="d-spin" class="{% if post.off %}mes {% endif %}spin text-purple1 spinner-border spinner-border-sm" role="status"></div>
+                        {% if post.off %}
+                            <div class="d-none d-lg-block me-auto lh-xbase text-nowrap rounded-width-3 rounded-end px-2 py-1 bg-purple1 text-white bold"> تخفیف {{post.off}} % </div>
+                            <div class="d-none d-lg-block ms-xl-3 w-75r text-center lh-xbase rounded-width-3 rounded-start py-1 countdown text-light bg-red1 f-small" data-date="{{post.off_date}}">
+                                <span class="second"></span>
+                                <span class="minute"></span>
+                                <span class="hour"></span>
+                                <span class="day"></span>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% if quantity %}
+                        <button type="button" class="addToBtn text-end text-sm-center d-block border-0 btn bg-red1 text-light bold f-small rounded-1 w-100 mt-lg-3">حذف از سبد</button>
+                    {% else %}
+                        <button type="button" class="addToBtn text-end text-sm-center d-block border-0 btn bg-purple1 text-light bold f-small rounded-1 w-100 mt-lg-3">افزودن به سبد خرید</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+          
+        </div>
+        <div class="mt-33">
+            <h2 class="medium text-gray4 b-hc d-inline-block text-nowrap h3">درباره محصول!</h2>
+            <p class="text-black mt-4 text-justify">{{post.desc|safe}}</p>
+            <h2 class="medium text-gray4 b-hc d-inline-block text-nowrap mt-22 h3">چطور سفارش بدهیم ؟!!</h2>
+            <p class="text-black mt-4 text-justify lh-lg">
+                برای سفارش کافیست از طریق دکمه ی افزودن به سبد خرید و طی کردن مراحل دیگر اقدام کنید و یا با شماره های زیر از طریق <span class="semibold">تماس تلفنی، پیامک و واتس‌آپ</span> اقدام به سفارش محصول مورد نظر نمایید. همچنین ناگفته نماند که از طریق <span class="semibold">دایرکت اینستاگرام</span> نیز می توانید سفارش خود را ثبت کنید.
+                <br />
+                به محض دریافت سفارش ما در سریع ترین و کوتاه ترین زمان اقدام به آماده سازی محصول خواهیم کرد و همچنین فیلم و عکس <span class="semibold">از نحوه ی آماده سازی و ضمانت کیفیت محصول</span> به مشتری ارسال خواهیم کرد تا <span class="semibold text-decoration-underline">بعد از اطمینان خاطر اقدام به پرداخت نمایید</span>.
+            </p>
+        </div>
+    </div>
+    <div class="f-heading1 bold lh-lg bg-gray66 text-black mt-4 py-4 text-center">
+        سفارش محصول به جز سبد خرید از طریق راه های زیر نیز امکان پذیر است.
+        <br />
+        <div class="d-flex flex-wrap justify-content-center mt-3">
+            شماره تلفن برای تماس یا پیام کوتاه :
+            <a href="tel:09124458122" class="text-decoration-none text-blackk me-2">۲۲ ۸۱ ۴۴۵ - ۰۹۱۲ </a>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center mt-3">
+            شماره پشتیبانی واتس‌آپ :
+            <a href="https://wa.me/09388454972" class="text-decoration-none text-blackk me-2">۷۲ ۴۹ ۸۴۵ - ۰۹۳۸ </a>
+        </div>
+        <div class="d-flex flex-wrap justify-content-center mt-3">
+            پیام در اینستاگرام :
+            <a href="https://www.instagram.com/huzanflower/" class="text-decoration-none text-blackk me-2">HuzanFlowerShop</a>
+        </div>
+    </div>
+    <div class="container-lg gx-0 my-22">
+        <h2 class="mx-11 medium text-gray4 b-hc d-inline-block text-nowrap h3">قیمت محصول؟</h2>
+        <p class="mx-11 text-black mt-4 text-justify">هزینه ی این محصول با توجه به نیاز و سفارش شما متغیر می باشد {% if post.price %}اما بطور میانگین {{post.price}} است. {% else %}(تماس بگیرید){% endif %}</p>
+        {% if similar_posts %}
+            <h2 class="mx-11 medium text-gray4 b-hc d-inline-block text-nowrap my-22 h3">محصولات مشابه</h2>
+            <div class="dots-md-small responsive4 text-end text-lg-center" data-count="{{similar_posts|length}}">
+                {% for post in similar_posts %}
+                    <article class="position-relative detail-article p-1 p-lg-11">
+                        <div class="arrow1"></div>
+                        <div class="arrow2"></div>
+                        <div class="arrow3"></div>
+                        <div class="arrow4"></div>
+                        {% if post.avail %}
+                            <button type="button" class="cart-button btn basket_btn1 disstyle-none" data-id="{{post.id}}" data-image1="{{post.image1.url}}" data-title="{{post.title}}" data-url="{% url 'detail_url' post.slug %}">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 20C2.08927 20 -1.20723 18.9474 0.393776 10C0.45768 9.6849 0.519183 9.37901 0.578879 9.08212C2.01483 1.94056 2.40502 0 9.99999 0C17.595 0 17.9852 1.94059 19.4211 9.08228C19.4808 9.37913 19.5423 9.68495 19.6062 10C21.2073 18.9474 17.9107 20 9.99999 20ZM13.3333 5C13.3333 4.53976 13.7064 4.16667 14.1667 4.16667C14.6269 4.16667 15 4.53976 15 5C15 6.61502 14.3861 7.88752 13.4182 8.74784C12.4657 9.59453 11.2192 10 10 10C8.78077 10 7.5343 9.59453 6.58178 8.74784C5.61392 7.88752 5 6.61502 5 5C5 4.53976 5.3731 4.16667 5.83333 4.16667C6.29357 4.16667 6.66667 4.53976 6.66667 5C6.66667 6.16276 7.09441 6.97359 7.68905 7.50216C8.29903 8.04436 9.13589 8.33333 10 8.33333C10.8641 8.33333 11.701 8.04436 12.3109 7.50216C12.9056 6.97359 13.3333 6.16276 13.3333 5Z" fill="#5E2A9F"/>
+                                </svg>
+                            </button>
+                        {% endif %}
+                        <div class="position-relative d-flex flex-row flex-lg-column align-items-center bg-white rounded-4 border-t1 px-3 px-lg-2 py-2">
+                            <a href="{% url 'detail_url' post.slug %}" class="rounded-4 overflow-hidden col-5 col-lg-12 position-relative d-block p-0 latest-products__img">
+                                <img class="img-cover w-100 h-100 rounded-4" data-src="{{post.image1.url}}" alt="{{post.title}}">
+                                {% if post.off %}
+                                    <div class="d-none d-lg-block text-center opacity-75 bsh-1 lh-xbase rounded-top-4 position-absolute top-0 end-0 start-0 w-100 countdown text-light bg-red1 f-small" data-date="{{post.off_date}}">
+                                        <span class="second"></span>
+                                        <span class="minute"></span>
+                                        <span class="hour"></span>
+                                        <span class="day"></span>
+                                    </div>
+                                    <span class="d-none d-lg-inline medium f-small lh-1d1 px-2 py-1 m-2 bg-red1 text-light rounded-toffer position-absolute bottom-0 start-0">% {{post.off}}</span>    
+                                {% endif %}
+                            </a>
+
+                            {% if post.off %}
+                                <div class="d-lg-none text-center f-smaller lh-lg rounded-4 position-absolute px-2 m-1 bottom-0 start-0 countdown text-light bg-red1" data-date="{{post.off_date}}">
+                                    <span class="second"></span>
+                                    <span class="minute"></span>
+                                    <span class="hour"></span>
+                                    <span class="day"></span>
+                                </div>
+                            {% endif %}
+
+                            <div class="flex-grow-1 col-7 col-lg-12 pe-3 pe-lg-0">
+                                <h3><a href="{% url 'detail_url' post.slug %}" class="d-block text-decoration-none p-0 px-0 px-lg-4 mt-2 text-truncate f-small bold text-gray2">{{post.title}}</a></h3>
+                                <p class="elipsis light f-smalle elipsis-white">{{post.desc_short}}</p>
+                            </div>
+                            <div class="d-none d-lg-flex col-12">
+                                <a href="{% url 'detail_url' post.slug %}" class="flex-grow-1 cart-buttontext btn p-0 text-decoration-none align-middle f-small text-light rounded-3 bg-gray1">
+                                    مشخصات محصول
+                                </a>
+                                {% if post.avail %}
+                                    <button type="button" class="rounded-circle px-2 cart-button btn border-0 me-2 align-middle" data-id="{{post.id}}" data-image1="{{post.image1.url}}" data-title="{{post.title}}" data-url="{% url 'detail_url' post.slug %}">
+                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.99999 20C2.08927 20 -1.20723 18.9474 0.393776 10C0.45768 9.6849 0.519183 9.37901 0.578879 9.08212C2.01483 1.94056 2.40502 0 9.99999 0C17.595 0 17.9852 1.94059 19.4211 9.08228C19.4808 9.37913 19.5423 9.68495 19.6062 10C21.2073 18.9474 17.9107 20 9.99999 20ZM13.3333 5C13.3333 4.53976 13.7064 4.16667 14.1667 4.16667C14.6269 4.16667 15 4.53976 15 5C15 6.61502 14.3861 7.88752 13.4182 8.74784C12.4657 9.59453 11.2192 10 10 10C8.78077 10 7.5343 9.59453 6.58178 8.74784C5.61392 7.88752 5 6.61502 5 5C5 4.53976 5.3731 4.16667 5.83333 4.16667C6.29357 4.16667 6.66667 4.53976 6.66667 5C6.66667 6.16276 7.09441 6.97359 7.68905 7.50216C8.29903 8.04436 9.13589 8.33333 10 8.33333C10.8641 8.33333 11.701 8.04436 12.3109 7.50216C12.9056 6.97359 13.3333 6.16276 13.3333 5Z" fill="#5E2A9F"/>
+                                        </svg>
+                                    </button>
+                                {% endif %}
+                            </div>
+                        </div>
+                        {% if post.off %}
+                            <span class="d-lg-none price-small medium f-small ps-11 h-1r pe-2 m-1 rounded-top-start-11 m-1 bg-red1 text-light rounded-bottom-end-4 position-absolute top-0 start-0">% {{post.off}}</span>    
+                        {% endif %}
+                    </article>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="container-lg">
+            <div class="d-flex flex-wrap justify-content-center hover-links ultralight f-small mt-22 mt-sm-5">
+                {% for tag in tags %}
+                    <a href="{% url 'tag_url' tag.slug %}" class="mt-2 text-decoration-none bg-light1 mx-1 text-gray2 p-0 rounded-3 px-1">
+                        {{tag.title}} 
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block toast-style %}mb-6 mb-sm-5 mb-lg-0{% endblock toast-style %}
+
+{% block scripts %}
+
+    <script>
+        const offset_top = $('#container').offset().top - 200;
+        if ($(window).width() < 576) {
+            $('body').animate({'scrollTop': offset_top}, 500, 'swing');
+        }
+        const id = "{{post.id}}"
+		const addrmbasket_url = {% if user.is_authenticated %}"{% url 'addrmbasket_url' %}"{% else %}null{% endif %}
+        const hit_count_url = {% url 'hit_count' %}
+	</script>
+	<script src="{% static 'posts/js/res-slider.js' %}"></script>
+	<script src="{% static 'posts/js/detail.js' %}"></script>
+{% endblock scripts %}

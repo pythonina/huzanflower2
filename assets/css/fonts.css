@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'dana VF';
+    src: url('../font/danawebGX.woff') format('woff-variations'),
+        url('danawebGX.woff') format('woff');
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-ultralight.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-ultralight.woff') format('woff');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-light.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-light.woff') format('woff');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-regular.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-medium.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-medium.woff') format('woff');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-semibold.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-semibold.woff') format('woff');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-bold.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-bold.woff') format('woff');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-extrabold.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-extrabold.woff') format('woff');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: dana;
+    src: url('../font/staticfonts/woff2/dana-fat.woff2') format('woff2'),
+        url('../font/staticfonts/woff/dana-fat.woff') format('woff');
+    font-weight: 900;
+}

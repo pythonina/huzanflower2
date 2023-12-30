@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metatags %}
+	<meta name="robots" content="noindex,nofollow">
+{% endblock metatags %}
+
+{% block banner-top %}{% endblock banner-top %}
+
+{% block full-page %}
+	<div class="modal fade" role="dialog" id="typeModal" tabindex="-1">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content rounded-22">
+				<div id="typeModalBody" class="modal-body px-sm-5 pb-4">
+					<img class="d-block mx-auto" data-src="{% static 'icon/subcart.png' %}" alt="cart submit type">
+					<div class="bold f-small text-gray2 text-center mt-3">از چه راهی با شما در ارتباط باشیم؟</div>
+					<div class="d-flex flex-wrap justify-content-center mx-n3 mt-00">
+						<button value="false" class="mx-11 cartType btn border-0 text-white medium rounded-22 bg-purple1 mt-00 px-3 py-2">
+							<svg width="15" height="18" viewBox="0 0 15 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M7.80683 10.9744C8.23974 11.3692 8.7004 11.7012 9.1828 11.9525C9.48396 12.0889 10.0064 11.7027 10.3906 11.4187C10.4866 11.3477 10.574 11.2831 10.6472 11.2346L10.6711 11.2193C11.0298 10.9898 11.4281 10.7349 11.9029 10.8578C12.3296 10.9655 13.7066 12.3832 14.078 12.8857C14.3216 13.2087 14.4434 13.5497 14.4369 13.8996C14.3738 15.2007 12.8025 16.6633 12.4361 16.9146C11.6462 17.5606 10.663 17.5517 9.5298 16.9056C8.31179 16.2865 6.90257 14.9854 5.56904 13.4061C5.09169 12.8408 4.18367 11.6505 3.93015 11.253C2.61069 9.32381 1.53603 7.25104 1.08958 5.57308C0.870569 4.86421 0.789801 4.20918 0.838278 3.62593C0.886009 3.05165 1.06373 2.54019 1.36318 2.10051C1.54852 1.76851 2.96865 -0.0440471 4.08417 0.000818776C4.35912 0.0367101 4.63039 0.207198 4.88147 0.530228C5.26111 1.02375 6.32208 2.80938 6.36822 3.33879C6.42365 3.90917 6.17298 4.35941 5.94715 4.76504L5.93191 4.79242C5.88112 4.88246 5.81354 4.98926 5.73966 5.10603C5.46747 5.53618 5.10976 6.10148 5.1915 6.46141C5.40157 7.28693 5.73257 8.0945 6.15067 8.83927C6.61966 9.60579 7.37392 10.5796 7.80683 10.9744Z" fill="white"/>
+							</svg>
+							از طریق تماس تلفنی
+						</button>
+						<button value="true" class="mx-11 cartType btn border-0 text-white medium rounded-22 bg-green1 mt-00 px-3 py-2">
+							<svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M17.32 4.55491C14.56 0.299908 8.92499 -0.965091 4.55499 1.67991C0.299991 4.32491 -1.08001 10.0749 1.67999 14.3299L1.90999 14.6749L0.989991 18.1249L4.43999 17.2049L4.78499 17.4349C6.27999 18.2399 7.88999 18.6999 9.49999 18.6999C11.225 18.6999 12.95 18.2399 14.445 17.3199C18.7 14.5599 19.965 8.92491 17.32 4.55491ZM14.905 13.4099C14.445 14.0999 13.87 14.5599 13.065 14.6749C12.605 14.6749 12.03 14.9049 9.72999 13.9849C7.77499 13.0649 6.16499 11.5699 5.01499 9.84491C4.32499 9.03991 3.97999 8.00491 3.86499 6.96991C3.86499 6.04991 4.20999 5.24491 4.78499 4.66991C5.01499 4.43991 5.24499 4.32491 5.47499 4.32491H6.04999C6.27999 4.32491 6.50999 4.32491 6.62499 4.78491C6.85499 5.35991 7.42999 6.73991 7.42999 6.85491C7.54499 6.96991 7.54499 7.19991 7.42999 7.31491C7.54499 7.54491 7.42999 7.77491 7.31499 7.88991C7.19999 8.00491 7.08499 8.23491 6.96999 8.34991C6.73999 8.46491 6.62499 8.69491 6.73999 8.92491C7.19999 9.61491 7.77499 10.3049 8.34999 10.8799C9.03999 11.4549 9.72999 11.9149 10.535 12.2599C10.765 12.3749 10.995 12.3749 11.11 12.1449C11.225 11.9149 11.8 11.3399 12.03 11.1099C12.26 10.8799 12.375 10.8799 12.605 10.9949L14.445 11.9149C14.675 12.0299 14.905 12.1449 15.02 12.2599C15.135 12.6049 15.135 13.0649 14.905 13.4099Z" fill="#E7E7EE"/>
+							</svg>
+							از طریق پیام در واتساپ
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock full-page %}
+
+
+{% block content %}
+
+    {% block whatsapp-info %}{% endblock %}
+
+    <div class="container-lg">
+
+    	<div class="hstack rounded-4 bg-yellow1 text-gray8 medium f-heading1 text-center py-1 mt-5 px-22">
+    		<svg class="ms-2 flex-shrink-0" width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<g opacity="0.4">
+				<path d="M1.7 34C1.7 40.961 2.0752 46.4387 3.03465 50.7558C3.98981 55.0536 5.50125 58.0964 7.70246 60.2976C9.90366 62.4988 12.9464 64.0102 17.2442 64.9654C21.5614 65.9248 27.039 66.3 34 66.3C40.9609 66.3 46.4386 65.9248 50.7558 64.9654C55.0536 64.0102 58.0963 62.4988 60.2975 60.2976C62.4987 58.0964 64.0102 55.0536 64.9653 50.7558C65.9248 46.4387 66.3 40.961 66.3 34C66.3 27.0391 65.9248 21.5614 64.9653 17.2443C64.0102 12.9464 62.4987 9.9037 60.2975 7.70249C58.0963 5.50128 55.0536 3.98985 50.7558 3.03468C46.4386 2.07523 40.9609 1.70004 34 1.70004C27.039 1.70004 21.5614 2.07523 17.2442 3.03468C12.9464 3.98985 9.90366 5.50128 7.70246 7.70249C5.50125 9.9037 3.98981 12.9464 3.03465 17.2443C2.0752 21.5614 1.7 27.0391 1.7 34Z" stroke="#3E3D50" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/>
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M36.6216 22.6667C36.6216 21.2192 35.4482 20.0458 34.0007 20.0458C32.5533 20.0458 31.3799 21.2192 31.3799 22.6667V39.6667C31.3799 41.1141 32.5533 42.2875 34.0007 42.2875C35.4482 42.2875 36.6216 41.1141 36.6216 39.6667V22.6667ZM34.0008 45.3333C32.436 45.3333 31.1675 46.6019 31.1675 48.1667C31.1675 49.7315 32.436 51 34.0008 51C35.5656 51 36.8341 49.7315 36.8341 48.1667C36.8341 46.6019 35.5656 45.3333 34.0008 45.3333Z" fill="#3E3D50"/>
+				</g>
+			</svg>
+			<span class="mx-auto">برای استعلام قیمت و نهایی کردن سفارش خود می‌توانید کد محصول را به شماره <a class="text-decoration-none text-blue1 " href="tel:09388454972">۰۹۳۸۸۴۵۴۹۷۲</a> ارسال کنید.</span>
+    	</div>
+
+        <div class="row">
+                
+            <section id="sidebar" class="sticky-md-top zindex-10 pt-5 anim-stick align-self-start d-flex flex-md-column flex-wrap col-12 col-md-4 medium text-gray1">
+                <a href="{% url 'cart_url' %}" class="flex-grow-1 prof-button text-decoration-none d-block w-md-100 btn border-0 p-3 rounded-3 rounded-sm-md-end-0 bg-light1 prof-btnactive">سبد خرید</a href="">
+                <a href="{% url 'history_url' %}" class="prof-button text-decoration-none d-block w-md-100 flex-grow-1 flex-md-grow-0 btn border-0 mt-2 mt-sm-0 mt-md-2 p-3 rounded-3 rounded-sm-md-0 bg-light1 prof-btn">لیست سفارشات</a href="">
+                <a href="{% url 'howto_url' %}" class="flex-grow-1 prof-button text-decoration-none d-block w-md-100 btn border-0 mt-2 mt-sm-0 mt-md-2 p-3 rounded-3 rounded-sm-md-start-0 bg-light1 prof-btn">نحوه ی پرداخت و شماره کارت</a href="">
+            </section>
+
+            <section id="container" class="col-12 col-md-8 mt-n2 pt-5">
+            	{% for b in basket_items %}
+					<article id="cartItem{{b.post.id}}" dir="rtl" class="hstack rounded-4 mt-2 py-2 px-3 border-t1 bg-white position-relative">
+						<button type="button" data-id="{{b.post.id}}" class="ripple-icon position-absolute top-0 start-0 m-1 me-auto flex-grow-0 cart-close text-start p-0 btn align-self-start border-0 rounded-circle">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M0.6 10C0.6 12.0451 0.710362 13.6475 0.990163 14.9065C1.26845 16.1587 1.7063 17.034 2.33614 17.6639C2.96597 18.2937 3.84135 18.7316 5.09353 19.0098C6.35252 19.2896 7.95494 19.4 10 19.4C12.0451 19.4 13.6475 19.2896 14.9065 19.0098C16.1587 18.7316 17.034 18.2937 17.6639 17.6639C18.2937 17.034 18.7316 16.1587 19.0098 14.9065C19.2896 13.6475 19.4 12.0451 19.4 10C19.4 7.95494 19.2896 6.35252 19.0098 5.09353C18.7316 3.84135 18.2937 2.96597 17.6639 2.33614C17.034 1.7063 16.1587 1.26845 14.9065 0.990164C13.6475 0.710361 12.0451 0.6 10 0.6C7.95494 0.6 6.35252 0.710361 5.09353 0.990164C3.84135 1.26845 2.96597 1.7063 2.33614 2.33614C1.7063 2.96597 1.26845 3.84135 0.990163 5.09353C0.710362 6.35252 0.6 7.95494 0.6 10Z" stroke="#494765" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M12.5 7.5L10 10M10 10L7.5 12.5M10 10L12.5 12.5M10 10L7.5 7.5" stroke="#494765" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+						</button>
+						<a href="{% url 'detail_url' b.post.slug %}" class="btn border-0 p-0 col-3 col-lg-4 img-small-wrapper img-small-wrapper-e3">
+							<img class="img-cover w-100 h-100 rounded-4" data-src="{{b.post.image1.url}}" alt="{{b.post.title}}" />
+						</a>
+						<div class="col-9 col-sm-10 col-lg-8 flex-grow-1 pe-3">
+							<h2 class="text-truncate mb-0 bold f-small mb-2 mb-sm-11 ps-4"><a href="{% url 'detail_url' b.post.slug %}" class="text-decoration-none text-gray8">{{b.post.title}}</a></h2>
+							<p class="d-none d-sm-block text-truncate light mb-3 f-smalle">{{b.post.desc_short}}</p>
+							
+							<div class="d-flex align-items-center">
+								<div class="float-end input-group w-8r rounded-3 border-t1" dir="ltr">
+									<button data-id="{{b.post.id}}" type="button" class="rounded-3 btn px-3 input-group-text border-0" data-type="minus" data-field="quantity">
+										<svg width="5" height="2" viewBox="0 0 5 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M0.659891 0.00199968H4.67789V1.78H0.659891V0.00199968Z" fill="#C22020"/>
+										</svg>
+									</button>
+									<input autocomplete="off" data-id="{{b.post.id}}" dir="rtl" type="text" name="quantity" value="{{b.quantity}}" class="cart-input border-0 rounded-3 text-center form-control">
+									<button type="button" data-id="{{b.post.id}}" class="rounded-3 btn px-3 input-group-text border-0" data-type="plus" data-field="quantity">
+										<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M5.05945 3.568H7.60745V5.136H5.05945V8.006H3.36545V5.136H0.803453V3.568H3.36545V0.753999H5.05945V3.568Z" fill="#2E961D"/>
+										</svg>
+									</button>
+								</div>
+								<div data-id="spin{{b.post.id}}" class="spin me-2 text-success spinner-border spinner-border-sm" role="status"></div>
+	
+								{% with off=b.post.off  %}
+									{% if off %}
+										<div class="d-none d-lg-block w-auto float-start text-nowrap me-auto px-3 ms-sm-1 lh-26px ms-md-3 ms-lg-0 flex-shrink-0 py-1 text-6 rounded-3 border-red f-small">
+											این محصول شامل {{off}}% تخفیف می‌باشد!!!
+										</div>
+										<div class="cart-off1 d-none d-sm-block d-lg-none w-auto float-start text-nowrap me-auto px-3 ms-sm-1 lh-26px ms-md-3 ms-lg-0 flex-shrink-0 py-1 text-6 rounded-3 border-red f-small">
+											%{{off}} تخفیف
+										</div>
+										<div class="cart-off2 d-block d-sm-none w-auto float-start text-nowrap me-auto px-3 ms-sm-1 lh-26px ms-md-3 ms-lg-0 flex-shrink-0 py-1 text-6 rounded-3 border-red f-small">
+											%{{off}}
+										</div>
+									{% endif %}
+								{% endwith %}
+							</div>
+						</div>
+					</article>
+				{% endfor %}
+				{% if basket_items %}
+					<button id="submitCart" type="button" class="btn border-0 bg-red1 rounded-4 px-5 py-11 mx-auto d-block text-white f-heading1 bold w-auto mt-4" data-bs-toggle="modal" data-bs-target="#typeModal">نهایی کردن سفارش</button>
+				{% else %}
+					<img id="img404" class="d-block mx-auto mt-3 img404" data-src="{% static 'icon/shopping-cart.png' %}" alt="404 not found">
+					<div class="h5 semibold text-purple2 text-center mt-4">سبد خرید شما خالی است !</div>
+				{% endif %}
+            </section>
+
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+	
+	<script src="{% static 'accounts/js/stick-scroll.js' %}"></script>
+	<script>
+		const container = $('#container');
+		const offset_top = $('#container').offset().top - 50;
+		if ($(window).width() < 576) {
+            $('body').animate({'scrollTop': offset_top}, 500, 'swing');
+        }
+		const basketRemoveUrl = {% if user.is_authenticated %}"{% url 'rmfrombasket_url' %}"{% else %}null{% endif %}
+		const basketSubmitUrl = {% if user.is_authenticated %}"{% url 'subbasket_url' %}"{% else %}null{% endif %}
+		const succImg = "{% static 'icon/succ.png' %}"
+        const img404 = "{% static 'icon/shopping-cart.png' %}" 
+
+	</script>
+	<script src="{% static 'accounts/js/cart-close.js' %}"></script>
+	
+{% endblock scripts %}
+

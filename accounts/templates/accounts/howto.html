@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block banner-top %}{% endblock banner-top %}
+
+{% block title %}گل فروشی هوزان - راهنمای ثبت سفارش و خرید از سایت هوزان فلاور + شماره کارت | دنیای گل و گیاه{% endblock title %}
+
+{% block content %}
+
+    {% block whatsapp-info %}{% endblock %}
+
+    <div class="container-lg">
+
+        <div class="row">
+                
+            <section id="sidebar" class="sticky-md-top zindex-10 pt-5 anim-stick align-self-start d-flex flex-md-column flex-wrap col-12 col-md-4 medium text-gray1">
+                <a href="{% url 'cart_url' %}" class="flex-grow-1 prof-button text-decoration-none d-block w-md-100 btn border-0 p-3 rounded-3 rounded-sm-md-end-0 bg-light1 prof-btn">سبد خرید</a href="">
+                <a href="{% url 'history_url' %}" class="prof-button text-decoration-none d-block w-md-100 flex-grow-1 flex-md-grow-0 btn border-0 mt-2 mt-sm-0 mt-md-2 p-3 rounded-3 rounded-sm-md-0 bg-light1 prof-btn">لیست سفارشات</a href="">
+                <a href="{% url 'howto_url' %}" class="flex-grow-1 prof-button text-decoration-none d-block w-md-100 btn border-0 mt-2 mt-sm-0 mt-md-2 p-3 rounded-3 rounded-sm-md-start-0 bg-light1 prof-btnactive">نحوه ی پرداخت و شماره کارت</a href="">
+            </section>
+
+            <section id="container" class="col-12 col-md-8 pt-5 text-gray8 f-heading1 text-justify">
+            	<p class="bg-yellow1 text-center rounded-4 py-3">
+                 <span class="mt-2 d-block bold">شماره کارت مجموعه هوزان فلاور به شرح زیر می‌باشد.</span>   
+                 <span class="mt-2 d-block medium">شماره کارت : ۹۷۲۲-۵۶۷۴-۹۹۸۱-۶۰۳۷</span>
+                 <span class="mt-2 d-block medium">به نام : اسماعیل  سلطان محمدی</span>
+                 <span class="mt-2 d-block ultralight h5">لطفا قبل از پرداخت با ما <a class="text-decoration-none text-blue1 normal" href="tel:09388454972">تماس</a> بگیرید.</span>
+                </p>
+                <h1 class="bold h2 mt-33">خرید از سایت و فروشگاه گل فروشی هوزان</h1>
+                <p class="mt-4">سایت گل فروشی هوزان خدمات متنوعی در زمینه‌ی گل و خدمات گل آرایی مجالس ، مهمانی ها و مراسمات شادی و محصولاتی مثل تاج گل مراسم ترحیم و تسلیت انجام می‌دهد.</p>
+                <h2 class="text-gray1 h4 bold mt-4">آموزش خرید از سایت</h2>
+                <p class="mt-3">بعد از اینکه محصول یا خدمت مورد نظر خود را از سایت هوزان فلاور انتخاب کردید در صفحه‌ی محصول با کلیک بر روی دکمه افزودن به سبد خرید و تکمیل خرید در صفحه ی سبد خرید توضیحات لازم برای هر محصول ذکر شده است و برای نهایی کردن سفارش خود یکی از راه های ذکر شده در سایت را انتخاب کنید.</p>
+                <img class="mw-100 d-block mx-auto mt-4" data-src="{% static 'icon/howto1.png' %}" alt="عکس اول آموزش خرید از هوزان فلاور">
+                <img class="mw-100 d-block mx-auto mt-2" data-src="{% static 'icon/howto2.png' %}" alt="عکس دوم آموزش خرید از هوزان فلاور">
+                <h2 class="text-gray1 h4 bold mt-22">سفارش از طریق ارسال پیامک</h2>
+                <p class="mt-3">با ارسال کد محصول به شماره <a class="text-decoration-none text-blue1 " href="tel:09388454972">۰۹۳۸۸۴۵۴۹۷۲</a> بلافاصله با شما تماس خواهیم گرفت و توضیحات محصول به همراه قیمت آن را برای شما توصیف خواهیم کرد.</p>
+                <img class="mw-100 d-block mx-auto mt-4" data-src="{% static 'icon/howto3.png' %}" alt="عکس سوم آموزش خرید از هوزان فلاور">
+                <h2 class="text-gray1 h4 bold mt-22">سفارش از طریق تماس تلفنی</h2>
+                <p class="mt-3">همچنین می‌توانید از طریق تماس با شماره <a class="text-decoration-none text-blue1 " href="tel:09388454972">۰۹۳۸۸۴۵۴۹۷۲</a> و اعلام کد محصول به ما آن را سفارش دهید.</p>
+                <img class="mw-100 d-block mx-auto mt-4" data-src="{% static 'icon/howto4.png' %}" alt="عکس چهارم آموزش خرید از هوزان فلاور">
+                <h2 class="text-gray1 h4 bold mt-22">سفارش از طریق واتساپ</h2>
+                <p class="mt-3">ما در اپلیکیشن واتساپ هم برای پشتیبانی و هم برای ثبت سفارش با همان شماره یعنی <a class="text-decoration-none text-blue1 " href="https://wa.me/09388454972">۰۹۳۸۸۴۵۴۹۷۲</a> کنار شما هستیم.</p>
+                <img class="mw-100 d-block mx-auto mt-4" data-src="{% static 'icon/howto5.png' %}" alt="عکس پنحم آموزش خرید از هوزان فلاور">
+                <h2 class="text-gray1 h4 bold mt-22">سفارش از طریق پر کردن فرم</h2>
+                <p class="mt-3">اگر تمایلی به راه های ذکر شده‌ی بالا ندارید می‌توانید با پر کردن فرم در صفحه ی سفارش محصول به ما خبر دهید و ما خیلی زود با شما تماس خواهیم گرفت.</p>
+                <img class="mw-100 d-block mx-auto mt-4" data-src="{% static 'icon/howto6.png' %}" alt="عکس ششم آموزش خرید از هوزان فلاور">
+                <p class="mt-22">علاوه بر همه ی راه هایی که درباره خرید از سایت و فروشگاه گل فروشی هوزان گفته شد ما در اینستاگرام نیز همواره پذیرای سفارشات و سوالات شما عزیزان هستیم.</p>
+                <a href="https://www.instagram.com/huzanflower/" class="text-decoration-none text-gray8 mt-2 bold">اینستاگرام گل فروشی هوزان</a>
+            </section>
+
+        </div>
+    </div>
+{% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+	<script src="{% static 'accounts/js/stick-scroll.js' %}"></script>
+    <script>
+        $('img').loadScroll(500);
+        $('body').removeClass('invisible');
+        const container = $('#container');
+		const offset_top = $('#container').offset().top - 50;
+		if ($(window).width() < 576) {
+            $('body').animate({'scrollTop': offset_top}, 500, 'swing');
+        }
+    </script>
+{% endblock scripts %}
+

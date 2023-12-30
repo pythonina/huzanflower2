@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block styles %}
+    <style>
+        :root {
+            --banner-topbg: white;
+        }
+    </style>
+{% endblock styles %}
+
+{% block title %}گل فروشی هوزان - تماس با ما{% endblock title %}
+
+{% block banner-top %}
+
+    <div class="banner-top">
+        <div class="container-lg text-lg-end">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <img data-src="{% static 'icon/banner-top3.webp' %}" alt="banner image">
+                </div>
+                <div class="col-8 text-start d-none d-610-block">
+                    <p class="col-12 text-3 display-5 ultralight">ما کنار شما هستیم...!</p>
+                    <p class="rounded-3 d-inline light text-4 px-11 bg-gray8 py-00 mt-3">پشتیبانی سریع و فوری ۷ روز هفته ۲۴ ساعت شبانه روز</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+{% endblock banner-top %}
+
+{% block content %}
+
+    <div id="container" class="container-md gx-5">
+        <h1 class="medium d-inline-block text-gray4 b-hc text-nowrap mt-33">با ما در ارتباط باشیــد ...</h1>
+        <div class="row justify-content-center align-items-stretch mb-22 mb-lg-33">
+            <div class="col-12 col-lg-8 ps-3 ps-lg-5 d-flex flex-column">
+                <h2 class="h4 text-gray2 bold mt-33">راه های تماس با گل فروشی هوزان چیست؟</h2>
+                <p class="text-black mt-3 text-justify">شما عزیزان می‌توانید از راه های مختلفی با ما در تماس باشید که جلوتر به بیان آن ها می‌پردازیم
+                    ما همیشه سعی داشتیم برای راحتی کاربران بتوانند از راه های بسیاری با مجموعه ما تماس بگیرند.</p>
+                <p class="text-black mt-3 text-justify">شما مشتریان گرامی می توانید از فرم تماس روبرو با ما تماس بگیرید یا از طریق راه های روبرو اقدام به انجام این عمل نمایید.</p>
+                <div id="map-container-google-1" class="d-none d-lg-flex flex-grow-1 z-depth-1-half map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.633379645459!2d51.47876978458569!3d35.66140333866627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91fd096690123f%3A0x34ee0decdb89de6d!2z2KfYs9iq2KfZhiDYqtmH2LHYp9mG2Iwg2KrZh9ix2KfZhtiMINio2YTZiNin2LEg2qnZiNir2LHYjCDYqNin2LLYp9ixINqv2YTYjCDYp9uM2LHYp9mG!5e0!3m2!1sfa!2s!4v1662499843891!5m2!1sfa!2s" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 position-relative">
+                <h2 class="h4 text-gray2 bold mt-22 mt-lg-33">فرم تماس با ما</h2>
+                <form id="contactForm" novalidate>
+                    {% csrf_token %}
+                    {{form}}
+                    <button data-url="{% url 'contactUs_url' %}" id="contactSubmit" type="submit" class="btn w-100 text-center text-light bg-green1 py-3 mt-3">ارسال پیام</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="map-container-google-1" class="d-lg-none flex-grow-1 z-depth-1-half map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.633379645459!2d51.47876978458569!3d35.66140333866627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91fd096690123f%3A0x34ee0decdb89de6d!2z2KfYs9iq2KfZhiDYqtmH2LHYp9mG2Iwg2KrZh9ix2KfZhtiMINio2YTZiNin2LEg2qnZiNir2LHYjCDYqNin2LLYp9ixINqv2YTYjCDYp9uM2LHYp9mG!5e0!3m2!1sfa!2s!4v1662499843891!5m2!1sfa!2s" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-auto justify-content-center text-center px-xxl-5 mt-22 mb-5">
+            <a href="tel:09388454972" class="bg-gray9 bg-lg-transparent text-decoration-none text-gray44 py-3">
+                <span class="text-gray5 bold">تلفن و پیامک</span>
+                <span class="text-gray4 medium">۷۲ ۴۹ ۸۴۵ - ۰۹۳۸ </span>
+                <svg width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.5 19C1.85325 19 0 17.3233 0 9.5C0 7.34989 0.139984 5.66406 0.522511 4.34971C1.50196 5.31891 2.73792 6.48438 4.08036 7.52249C5.98432 8.99482 8.29021 10.3636 10.5 10.3636C12.7098 10.3636 15.0157 8.99482 16.9196 7.52249C18.2621 6.48438 19.498 5.31891 20.4775 4.34971C20.86 5.66406 21 7.34989 21 9.5C21 17.3233 19.1467 19 10.5 19Z" fill="#E7E7EE"/>
+                    <path d="M19.7149 2.65405C18.6896 3.6854 17.3297 5.0111 15.8404 6.16283C13.9643 7.61357 12.0702 8.63636 10.5 8.63636C8.92979 8.63636 7.03569 7.61357 5.15964 6.16283C3.67028 5.0111 2.31036 3.6854 1.28508 2.65405C2.67479 0.580881 5.41065 0 10.5 0C15.5894 0 18.3252 0.580881 19.7149 2.65405Z" fill="#E7E7EE"/>
+                </svg>
+                <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.651 10.6609C11.2209 11.0444 11.8272 11.3669 12.4619 11.611C12.8581 11.7435 13.5441 11.3683 14.0485 11.0924C14.1746 11.0235 14.2893 10.9607 14.3853 10.9137L14.4168 10.8988C14.8878 10.6758 15.4109 10.4282 16.0352 10.5476C16.5964 10.6522 18.4096 12.0294 18.8989 12.5175C19.2198 12.8313 19.3808 13.1626 19.373 13.5025C19.2929 14.7664 17.2305 16.1872 16.7494 16.4313C15.7125 17.0589 14.4199 17.0502 12.9289 16.4226C11.3264 15.8211 9.47105 14.5572 7.71461 13.0231C7.08585 12.4739 5.88961 11.3177 5.55547 10.9315C3.81675 9.05742 2.3995 7.04386 1.80895 5.41385C1.51948 4.72523 1.41188 4.08891 1.47432 3.52233C1.53581 2.96446 1.76832 2.46761 2.161 2.0405C2.40391 1.71798 4.26678 -0.0427886 5.73328 0.000795383C6.0948 0.0356613 6.45178 0.201278 6.78255 0.515079C7.28268 0.994495 8.6813 2.72911 8.74311 3.2434C8.81723 3.79748 8.4887 4.23486 8.19272 4.6289L8.17274 4.6555C8.10618 4.74296 8.01757 4.84671 7.9207 4.96014C7.56384 5.378 7.09484 5.92715 7.20309 6.2768C7.48105 7.07873 7.91794 7.86323 8.46918 8.58671C9.08738 9.33134 10.081 10.2773 10.651 10.6609Z" fill="#E7E7EE"/>
+                </svg>
+            </a>
+            <a href="mailto:HuzanFlower@gmail.com" class="bg-gray9 bg-lg-transparent text-decoration-none text-gray44 py-3 mt-2 mt-lg-0">
+                <span class="text-gray5 bold">ایمیل</span>
+                <span class="text-gray4 medium">HuzanFlower@gmail.com</span>
+                <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 6C16.1667 6 15.4583 5.70833 14.875 5.125C14.2917 4.54167 14 3.83333 14 3C14 2.16667 14.2917 1.45833 14.875 0.875C15.4583 0.291667 16.1667 0 17 0C17.8333 0 18.5417 0.291667 19.125 0.875C19.7083 1.45833 20 2.16667 20 3C20 3.83333 19.7083 4.54167 19.125 5.125C18.5417 5.70833 17.8333 6 17 6ZM2 18C1.45 18 0.979333 17.8043 0.588 17.413C0.196 17.021 0 16.55 0 16V4C0 3.45 0.196 2.97933 0.588 2.588C0.979333 2.196 1.45 2 2 2H12.1C12.0333 2.33333 12 2.66667 12 3C12 3.33333 12.0333 3.66667 12.1 4C12.2167 4.53333 12.4083 5.029 12.675 5.487C12.9417 5.94567 13.2667 6.35 13.65 6.7L10 9L2 4V6L10 11L15.275 7.7C15.5583 7.8 15.8417 7.875 16.125 7.925C16.4083 7.975 16.7 8 17 8C17.5333 8 18.0583 7.91667 18.575 7.75C19.0917 7.58333 19.5667 7.33333 20 7V16C20 16.55 19.8043 17.021 19.413 17.413C19.021 17.8043 18.55 18 18 18H2Z" fill="#E7E7EE"/>
+                </svg>
+            </a>
+            <a href="https://wa.me/09388454972" class="bg-gray9 bg-lg-transparent text-decoration-none text-gray44 py-3 mt-2 mt-lg-0">
+                <span class="text-gray5 bold">واتس‌آپ</span>
+                <span class="text-gray4 medium">۷۲ ۴۹ ۸۴۵ - ۰۹۳۸ </span>
+                <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.32 4.55491C14.56 0.299908 8.92499 -0.965091 4.55499 1.67991C0.299991 4.32491 -1.08001 10.0749 1.67999 14.3299L1.90999 14.6749L0.989991 18.1249L4.43999 17.2049L4.78499 17.4349C6.27999 18.2399 7.88999 18.6999 9.49999 18.6999C11.225 18.6999 12.95 18.2399 14.445 17.3199C18.7 14.5599 19.965 8.92491 17.32 4.55491ZM14.905 13.4099C14.445 14.0999 13.87 14.5599 13.065 14.6749C12.605 14.6749 12.03 14.9049 9.72999 13.9849C7.77499 13.0649 6.16499 11.5699 5.01499 9.84491C4.32499 9.03991 3.97999 8.00491 3.86499 6.96991C3.86499 6.04991 4.20999 5.24491 4.78499 4.66991C5.01499 4.43991 5.24499 4.32491 5.47499 4.32491H6.04999C6.27999 4.32491 6.50999 4.32491 6.62499 4.78491C6.85499 5.35991 7.42999 6.73991 7.42999 6.85491C7.54499 6.96991 7.54499 7.19991 7.42999 7.31491C7.54499 7.54491 7.42999 7.77491 7.31499 7.88991C7.19999 8.00491 7.08499 8.23491 6.96999 8.34991C6.73999 8.46491 6.62499 8.69491 6.73999 8.92491C7.19999 9.61491 7.77499 10.3049 8.34999 10.8799C9.03999 11.4549 9.72999 11.9149 10.535 12.2599C10.765 12.3749 10.995 12.3749 11.11 12.1449C11.225 11.9149 11.8 11.3399 12.03 11.1099C12.26 10.8799 12.375 10.8799 12.605 10.9949L14.445 11.9149C14.675 12.0299 14.905 12.1449 15.02 12.2599C15.135 12.6049 15.135 13.0649 14.905 13.4099Z" fill="#E7E7EE"/>
+                </svg>
+            </a>
+            <a href="https://www.instagram.com/huzanflower/" class="bg-gray9 bg-lg-transparent text-decoration-none text-gray44 py-3 mt-2 mt-lg-0">
+                <span class="text-gray5 bold">دایرکت اینستاگرام</span>
+                <span class="text-gray4 medium">HuzanFlowerShop</span>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.99999 6.8758C8.27968 6.8758 6.87577 8.2797 6.87577 10C6.87577 11.7203 8.27968 13.1242 9.99999 13.1242C11.7203 13.1242 13.1242 11.7203 13.1242 10C13.1242 8.2797 11.7203 6.8758 9.99999 6.8758ZM19.3703 10C19.3703 8.70626 19.382 7.42423 19.3094 6.13283C19.2367 4.63283 18.8945 3.30158 17.7976 2.2047C16.6984 1.10548 15.3695 0.765639 13.8695 0.692982C12.5758 0.620326 11.2937 0.632045 10.0023 0.632045C8.70858 0.632045 7.42655 0.620326 6.13515 0.692982C4.63515 0.765639 3.3039 1.10783 2.20702 2.2047C1.1078 3.30392 0.767958 4.63283 0.695302 6.13283C0.622645 7.42658 0.634364 8.70861 0.634364 10C0.634364 11.2914 0.622645 12.5758 0.695302 13.8672C0.767958 15.3672 1.11015 16.6985 2.20702 17.7953C3.30624 18.8945 4.63515 19.2344 6.13515 19.307C7.4289 19.3797 8.71093 19.368 10.0023 19.368C11.2961 19.368 12.5781 19.3797 13.8695 19.307C15.3695 19.2344 16.7008 18.8922 17.7976 17.7953C18.8969 16.6961 19.2367 15.3672 19.3094 13.8672C19.3844 12.5758 19.3703 11.2938 19.3703 10V10ZM9.99999 14.807C7.33983 14.807 5.19296 12.6602 5.19296 10C5.19296 7.33986 7.33983 5.19298 9.99999 5.19298C12.6601 5.19298 14.807 7.33986 14.807 10C14.807 12.6602 12.6601 14.807 9.99999 14.807ZM15.0039 6.11876C14.3828 6.11876 13.8812 5.6172 13.8812 4.99611C13.8812 4.37501 14.3828 3.87345 15.0039 3.87345C15.625 3.87345 16.1266 4.37501 16.1266 4.99611C16.1267 5.14359 16.0978 5.28966 16.0415 5.42595C15.9851 5.56224 15.9024 5.68607 15.7981 5.79036C15.6939 5.89464 15.57 5.97733 15.4337 6.03368C15.2974 6.09004 15.1514 6.11895 15.0039 6.11876V6.11876Z" fill="#E7E7EE"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+
+{% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'js/contact-us.js' %}"></script>
+    
+    <script>
+        $('.text-gray44').hover(function (){
+            $(this).find('path').attr('fill', '#565e64');
+        }, function (){
+            $(this).find('path').attr('fill', '#E7E7EE');
+        })
+        const offset_top = $('#container').offset().top - 100;
+        if ($(window).width() < 576) {
+            $('body').animate({'scrollTop': offset_top}, 500, 'swing');
+        }
+    </script>
+{% endblock scripts %}

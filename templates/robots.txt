@@ -1,0 +1,10 @@
+user-agent: *
+disallow: /posts/hit_count
+disallow: /posts/join-us
+disallow: /search*
+disallow: *?*
+disallow: /static/icon/
+disallow: /static/fonts/
+disallow: /media/
+
+Sitemap: https://www.huzanflower.com/sitemap.xml

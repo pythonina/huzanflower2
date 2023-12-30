@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metatags %}
+	<meta name="robots" content="noindex,nofollow">
+{% endblock metatags %}
+
+{% block banner-top %}{% endblock banner-top %}
+
+{% block content %}
+    <div id="container" class="container-md">
+        <div class="d-flex flex-column justify-content-center align-items-center mt-6">
+            <img data-src="{% static 'icon/404.png' %}" alt="error 404" class="img404 col-6 d-block">
+            <div class="ultralight text-gray2 display-5 mt-5 text-center">صفحه ای که دنبال آن هستید پیدا نشد!!!</div>
+            <a href="{% url 'home_url' %}" class="btn border-0 rounded-3 text-white bold f-heading1 px-2 py-1 mt-4 bg-purple3">برگشت به صفحه اصلی</a>
+        </div>
+    </div>
+{% endblock content %}
+
+
+{% block scripts %}
+
+    <script>
+        $('img').loadScroll(500);
+        $('body').removeClass('invisible');
+        const offset_top = $('#container').offset().top - 100;
+        if ($(window).width() < 576) {
+            $('body').animate({'scrollTop': offset_top}, 500, 'swing');
+        }
+    </script>
+{% endblock scripts %}

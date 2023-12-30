@@ -1,0 +1,9 @@
+
+🛍 کد سفارش :<code> {{ data.cart_id }} </code>
+📞 مشتری :<strong> {{data.user_phone}}</strong>
+⏱ تاریخ سفارش :<strong> {{ data.cart_publish }}</strong>
+📣 راه ارتباطی :<strong>{% if data.cart_whats %} واتساپ{% else %} تماس{% endif %}</strong>
+{% for item in data.cart_items %}
+<a href="{{item.url}}">{% if forloop.counter|divisibleby:"2"%}▫️{% else %}▪️{% endif%} {{item.title|truncatewords:10}}</a> <strong>({{item.quantity}} عدد){% if item.off %} [{{item.off}} &#37;]{% endif %}</strong>
+{% endfor %}
+

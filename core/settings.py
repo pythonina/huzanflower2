@@ -75,7 +75,7 @@ DATABASES = {
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://huzan-redis-fte-service:6379/",
+        "LOCATION": "redis://huzan-redis-ncm-service:6379/",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
             "PASSWORD": os.environ.get('redis_pw')

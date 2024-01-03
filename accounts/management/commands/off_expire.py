@@ -12,7 +12,7 @@ class Command(BaseCommand):
         up_list = []
         posts = Post.objects.exclude(off='').only('off_date')
         for post in posts:
-            post.off_date = (make_aware(datetime.fromtimestamp(float(post.off_date))) -timedelta(days=1)).timestamp()
+            post.off_date = (make_aware(datetime.fromtimestamp(float(post.off_date))) +timedelta(days=1)).timestamp()
             up_list.append(post)
 
         posts.bulk_update(up_list, ['off_date'])
